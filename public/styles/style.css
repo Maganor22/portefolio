@@ -1,0 +1,367 @@
+:root {
+    --primary-color: #e9c46a;
+    --secondary-color: #ff8c00;
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --border-radius: 10px;
+    --section-color-1: #ff6347;
+    --section-color-2: #4682b4;
+    --section-color-3: #32cd32;
+}
+
+body.light-mode {
+    --background-color: #f4f4f4;
+    --text-color: #333333;
+    --section-color-1: #ffb6c1;
+    --section-color-2: #87cefa;
+    --section-color-3: #90ee90;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #1a1a1a, #247044, #140f3d, #247044, #1a1a1a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+header {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1em;
+}
+
+header button {
+    padding: 10px;
+    background-color: var(--secondary-color) !important;
+    color: #fff !important;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+header button:hover {
+    background-color: #ff6347 !important;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+
+section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    border-bottom: 2px solid var(--primary-color) !important;
+    padding-bottom: 10px;
+}
+
+.section-color-1 {
+    background-color: var(--section-color-1) !important;
+}
+
+.section-color-2 {
+    background-color: var(--section-color-2) !important;
+}
+
+.section-color-3 {
+    background-color: var(--section-color-3) !important;
+}
+
+.project {
+    background-color: var(--background-color) !important;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid var(--primary-color) !important;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.project h3 {
+    margin-top: 0;
+}
+
+.project .card-subtitle,
+.project .card-text {
+    color: var(--text-color) !important;
+}
+
+footer {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+    text-align: center;
+    padding: 10px 0;
+    /* position: fixed; */
+    width: 100%;
+    bottom: 0;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.cinezen {
+    color: #e9c46a !important;
+}
+
+/* Additional styles for light mode */
+body.light-mode header {
+    background-color: var(--primary-color) !important;
+    color: #333 !important;
+}
+
+body.light-mode footer {
+    background-color: var(--primary-color) !important;
+    color: #333 !important;
+}
+
+body.light-mode .project {
+    background-color: var(--background-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.imgProject {
+    width: 5%;
+    height: 5%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+.progress-bar {
+    transition: width 1.5s ease-in-out;
+    background-color: #0084ffa4 !important;
+    /* Couleur au choix */
+}
+
+/* Animation de couleur de fond du body */
+
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Fin animation couleur de fond du body */
+
+
+
+/* Animation des projects */
+.project.card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    /* Fond clair par défaut */
+    transition: box-shadow 0.3s ease;
+}
+
+.project.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* Ombre au survol */
+}
+
+/* Pseudo-élément pour la vague adoucie */
+.project.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    /* Démarre hors de la carte à gauche */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(0, 123, 255, 0.1) 30%,
+            /* Début doux */
+            rgba(0, 123, 255, 0.3) 50%,
+            /* Pic de la vague */
+            rgba(0, 123, 255, 0.1) 70%,
+            /* Fin progressive */
+            transparent 100%);
+    filter: blur(5px);
+    /* Adoucit les bordures */
+    transition: left 0.7s ease-out;
+    /* Mouvement plus naturel */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project.card:hover::before {
+    left: 100%;
+    /* Traverse jusqu’à la droite */
+}
+
+/* Contenu au-dessus de la vague */
+.card-body {
+    position: relative;
+    z-index: 2;
+}
+
+/* Style pour l’image */
+.imgProject {
+    max-width: 80px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Compatibilité thème sombre */
+body:not(.light-mode) .project.card {
+    background: #343a40;
+}
+
+body:not(.light-mode) .project.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.light-mode) .project.card::before {
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.0) 30%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.0) 70%,
+            transparent 100%);
+}
+
+/* Fin animation des projects */
+
+
+
+
+
+
+
+
+
+/* Fond animé "Jeu de la Vie" */
+#life-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    /* Fond noir pour contraste */
+    opacity: 0.1;
+    /* Faible opacité pour ne pas gêner */
+    z-index: -1;
+    /* Derrière tout le contenu */
+    overflow: hidden;
+}
+
+/* Style des sections avec encadré */
+/* Style des sections avec encadré */
+.content-box {
+    background: rgba(255, 255, 255, 0.75);
+    /* Réduit de 0.9 à 0.75 pour plus de transparence */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Ajustement pour le thème sombre */
+body:not(.light-mode) .content-box {
+    background: rgba(52, 58, 64, 0.75);
+    /* Réduit de 0.9 à 0.75 */
+}
+
+/* Style des cartes (inchangé sauf pour cohérence) */
+.project.card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: transparent;
+    /* Les cartes héritent du fond du .content-box */
+}
+
+.project.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(0, 123, 255, 0.1) 30%,
+            rgba(0, 123, 255, 0.3) 50%,
+            rgba(0, 123, 255, 0.1) 70%,
+            transparent 100%);
+    filter: blur(5px);
+    transition: left 0.7s ease-out;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project.card:hover::before {
+    left: 100%;
+}
+
+.card-body {
+    position: relative;
+    z-index: 2;
+}
+
+body:not(.light-mode) .project.card::before {
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) 30%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.05) 70%,
+            transparent 100%);
+}
